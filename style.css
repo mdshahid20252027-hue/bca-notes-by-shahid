@@ -479,3 +479,126 @@ button:hover, .btn:hover{
     grid-template-columns: 1fr;
   }
 }
+/* ===== ABOUT SECTION UPGRADE ===== */
+
+.about-section {
+  padding: 90px 7%;
+  text-align: center;
+}
+
+.about-header {
+  max-width: 800px;
+  margin: 0 auto 45px;
+}
+
+.about-header > span {
+  color: #2563eb;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.about-header h2 {
+  font-size: 42px;
+  margin: 12px 0;
+  color: #172033;
+}
+
+.about-header p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #667085;
+}
+
+.about-cards {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.about-card {
+  text-align: left;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 20px;
+  transition: 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.12);
+}
+
+.about-icon {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.about-card h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  color: #172033;
+}
+
+.about-card p {
+  margin: 0;
+  color: #667085;
+  line-height: 1.7;
+}
+
+.about-founder {
+  max-width: 700px;
+  margin: 45px auto 0;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  background: #f8faff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.founder-avatar {
+  min-width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #2563eb;
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.about-founder h3 {
+  margin: 0 0 7px;
+  color: #172033;
+}
+
+.about-founder p {
+  margin: 0;
+  color: #667085;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    padding: 60px 18px;
+  }
+
+  .about-header h2 {
+    font-size: 32px;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-founder {
+    align-items: flex-start;
+  }
+}
