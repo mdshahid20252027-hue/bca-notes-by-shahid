@@ -439,3 +439,33 @@ document.addEventListener('DOMContentLoaded',()=>{
  v5UpdateOnline();
  if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 });
+
+/* V6.0 final polish */
+function shareSite(){
+  const data={title:'BCA Notes by Shahid — AKU Semester II',text:'AKU BCA Semester II notes, revision and practice tools.',url:location.href};
+  if(navigator.share){navigator.share(data).catch(()=>{});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(()=>v5Toast('Website link copied.')).catch(()=>v5Toast('Copy the URL from your browser address bar.'));}
+  else{v5Toast('Copy the URL from your browser address bar.');}
+}
+function showPyqNotice(year){
+  v5Toast(`PYQ ${year}: add the exact verified paper before publishing it as an official AKU paper.`);
+}
+(function(){
+  try{
+    const saved=localStorage.getItem('bca-theme');
+    if(saved==='dark' && !document.body.classList.contains('dark')) document.body.classList.add('dark');
+  }catch(e){}
+})();
+const oldToggleTheme=window.toggleTheme;
+window.toggleTheme=function(){
+  if(typeof oldToggleTheme==='function') oldToggleTheme();
+  try{localStorage.setItem('bca-theme',document.body.classList.contains('dark')?'dark':'light')}catch(e){}
+};
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav')?.classList.remove('open')));
+});
+
+(function(){
+  const n=document.getElementById('nav');
+  window.toggleNav=function(){if(n)n.classList.toggle('open');};
+})();

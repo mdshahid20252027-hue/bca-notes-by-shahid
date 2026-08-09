@@ -1,11 +1,16 @@
 {
-  "name": "BCA Notes by Shahid",
+  "name": "BCA Notes by Shahid \u2014 AKU Semester II",
   "short_name": "BCA Notes",
-  "description": "BCA Semester II study portal with notes, quizzes, labs and revision tools.",
+  "description": "Professional AKU BCA Semester II study portal.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#4b6ff0",
+  "background_color": "#f6f8fc",
+  "theme_color": "#4b6ff3",
   "orientation": "portrait-primary",
-  "icons": []
+  "lang": "en",
+  "categories": [
+    "education",
+    "productivity"
+  ]
 }
