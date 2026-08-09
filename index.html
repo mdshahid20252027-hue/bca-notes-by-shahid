@@ -1,0 +1,688 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BCA Notes by Shahid — AKU Semester II</title><link rel="stylesheet" href="style.css"></head><body>
+<header><a href="#home" class="brand">📚 BCA Notes <small>by Shahid</small></a><nav id="nav"><a href="#home">Home</a><a href="#dashboard">Dashboard</a><a href="#subjects">Subjects</a><a href="#planner">Planner</a><a href="#revision">Revision</a><a href="#question-bank">Questions</a><a href="#analytics">Analytics</a><a href="#focus-mode">Focus</a><a href="#formula-sheet">Formulas</a><a href="#v5-hub">V5 Hub</a><a href="#important-answers">Answers</a><a href="#pyq">PYQs</a><a href="#about">About</a></nav><div><button onclick="toggleTheme()">🌙</button><button class="menu" onclick="toggleNav()">☰</button></div></header>
+<section id="home" class="hero"><div><span>AKU • BCA • SEMESTER II</span><h1>Complete Notes.<br><em>Learn from Basics to Advanced.</em></h1><p>Five AKU Semester-II subjects explained in original, student-friendly English with examples, exam focus, diagrams and interactive MCQs.</p><a class="primary" href="#subjects">Start Learning →</a></div><div class="hero-card"><b>SEMESTER II</b><ul><li>Business English</li><li>Mathematics (Numerical Techniques)</li><li>System Analysis & Design</li><li>Problem Solving & Programming in C</li><li>Operating System & Unix</li></ul></div></section>
+
+<div id="studybar" class="studybar">
+  <div class="study-search">
+    <span>🔎</span>
+    <input id="globalSearch" type="search" placeholder="Search notes, chapters, topics..." oninput="globalSearchNotes(this.value)">
+    <button onclick="clearGlobalSearch()">Clear</button>
+  </div>
+  <button class="bookmark-link" onclick="showBookmarks()">⭐ My Bookmarks <b id="bookmarkCount">0</b></button><a class="exam-link" href="#exam-mode">🧠 Exam Mode</a><a class="exam-link" href="#numerical-lab">📐 Numerical Lab</a><a class="exam-link" href="#c-lab">💻 C Lab</a><a class="exam-link" href="#unix-lab">🖥️ Unix Lab</a>
+  <div class="progress-mini"><span>Overall Progress</span><strong id="progressText">0%</strong><div><i id="progressFill"></i></div></div>
+</div>
+<div id="searchResults" class="search-results"></div>
+<div id="bookmarkPanel" class="bookmark-panel" hidden>
+  <div class="panel-head"><h3>⭐ My Bookmarks</h3><button onclick="closePanels()">✕</button></div>
+  <div id="bookmarkList"></div>
+</div>
+
+
+<section id="dashboard" class="dashboard-v4">
+  <div class="dashboard-head">
+    <div>
+      <small>YOUR STUDY SPACE</small>
+      <h2>Welcome back, <span>Shahid</span> 👋</h2>
+      <p>Pick up where you left off and keep your Semester II preparation moving.</p>
+    </div>
+    <a class="primary" href="#subjects">📚 Explore Subjects</a>
+  </div>
+
+  <div class="dash-grid">
+    <article class="dash-card continue-card">
+      <div class="dash-label">▶ CONTINUE LEARNING</div>
+      <h3 id="continueTitle">Choose a chapter to begin</h3>
+      <p id="continueText">Your most recently opened chapter will appear here.</p>
+      <a id="continueBtn" class="dash-action" href="#subjects">Start Learning →</a>
+    </article>
+
+    <article class="dash-card">
+      <div class="dash-label">📊 OVERALL PROGRESS</div>
+      <div class="big-progress"><strong id="dashProgress">0%</strong><div><i id="dashProgressFill"></i></div></div>
+      <p id="dashProgressText">Save chapters with ⭐ to build your study progress.</p>
+    </article>
+
+    <article class="dash-card">
+      <div class="dash-label">🧠 QUIZ BEST</div>
+      <div class="best-score" id="dashBestScore">0%</div>
+      <p>Best score across your Exam Mode subjects.</p>
+      <a class="dash-action" href="#exam-mode">Take a Quiz →</a>
+    </article>
+
+    <article class="dash-card">
+      <div class="dash-label">⭐ SAVED</div>
+      <div class="best-score" id="dashSaved">0</div>
+      <p>Chapters saved for quick revision.</p>
+      <button class="dash-action" onclick="showBookmarks()">View Bookmarks →</button>
+    </article>
+  </div>
+
+  <div class="subject-progress-board">
+    <div class="board-head"><h3>Subject Progress</h3><span>Saved chapters</span></div>
+    <div id="dashboardSubjects"></div>
+  </div>
+</section>
+
+<section id="planner" class="planner-v4">
+  <div class="heading"><small>DAILY STUDY PLANNER</small><h2>📅 Today's Study Plan</h2><p>Create a simple checklist and keep it saved in this browser.</p></div>
+  <div class="planner-box">
+    <form onsubmit="addStudyTask(event)">
+      <input id="newTask" placeholder="e.g. Revise Process Management" maxlength="100">
+      <button class="primary">Add Task</button>
+    </form>
+    <div id="taskList"></div>
+    <div class="planner-footer"><span id="taskProgress">0/0 completed</span><button onclick="clearCompletedTasks()">Clear completed</button></div>
+  </div>
+</section>
+
+
+<div class="quick-actions-v43" aria-label="Quick actions">
+  <a href="#revision">⚡ Quick Revision</a>
+  <a href="#question-bank">📝 Question Bank</a>
+  <a href="#exam-mode">🧠 Exam Mode</a>
+  <a href="#numerical-lab">📐 Numerical Lab</a>
+  <a href="#c-lab">💻 C Lab</a>
+  <a href="#unix-lab">🖥️ Unix Lab</a>
+  <a href="#focus-mode">🎯 Focus Mode</a>
+</div>
+
+
+<section id="v5-hub" class="v5-hub">
+  <div class="heading">
+    <small>V5.0 STUDY PORTAL</small>
+    <h2>🚀 BCA Study Hub</h2>
+    <p>Install the portal like an app, use the command/search palette, and keep your study workflow in one place.</p>
+  </div>
+  <div class="v5-top-grid">
+    <article class="v5-card install-card">
+      <div class="v5-icon">📲</div>
+      <h3>Install BCA Notes</h3>
+      <p id="installText">Add the study portal to your home screen for an app-like experience.</p>
+      <button class="primary" id="installBtn" onclick="v5Install()">Install App</button>
+      <small id="installHint">Installation availability depends on the browser and how the files are hosted.</small>
+    </article>
+    <article class="v5-card">
+      <div class="v5-icon">📡</div>
+      <h3>Connection Status</h3>
+      <div class="online-status"><span id="onlineDot"></span><strong id="onlineText">Checking...</strong></div>
+      <p id="offlineText">The app can use cached resources after a successful first load when served as a PWA.</p>
+    </article>
+    <article class="v5-card">
+      <div class="v5-icon">⌨️</div>
+      <h3>Quick Command</h3>
+      <p>Press <kbd>Ctrl</kbd> + <kbd>K</kbd> or tap the button to jump anywhere.</p>
+      <button onclick="openV5Palette()">⌘ Open Study Search</button>
+    </article>
+  </div>
+  <div class="v5-stats-row">
+    <span>📚 All study tools in one portal</span>
+    <span>💾 Progress stored locally</span>
+    <span>🧠 Quiz history stored locally</span>
+    <span>📱 Responsive on phone</span>
+  </div>
+</section>
+
+<div id="v5Palette" class="v5-palette" hidden>
+  <div class="palette-backdrop" onclick="closeV5Palette()"></div>
+  <div class="palette-box" role="dialog" aria-modal="true">
+    <div class="palette-head"><input id="v5Search" placeholder="Search tools, subjects or actions..." oninput="renderV5Results()" autocomplete="off"><button onclick="closeV5Palette()">✕</button></div>
+    <div id="v5Results"></div>
+    <div class="palette-foot">Enter to open • Esc to close • Ctrl+K to open</div>
+  </div>
+</div>
+
+<section id="subjects"><div class="heading"><small>YOUR STUDY LIBRARY</small><h2>Five Subjects</h2><p>Each subject has explanatory notes, key points, diagrams where useful and a quiz.</p></div><div class="subject-grid">
+<a class="subject-card" href="#os"><b>🖥️</b><small>BCA-205</small><h3>Operating System & Unix</h3><p>Operating systems and Unix/Linux, explained from the ground up.</p><span>Open Notes →</span></a><a class="subject-card" href="#c"><b>💻</b><small>BCA-204</small><h3>Problem Solving Technique & Programming in C</h3><p>Problem solving plus C programming, from first principles to pointers and files.</p><span>Open Notes →</span></a><a class="subject-card" href="#sad"><b>📊</b><small>BCA-203</small><h3>System Analysis & Design</h3><p>Understand how information systems are investigated, planned, modelled, designed and maintained.</p><span>Open Notes →</span></a><a class="subject-card" href="#english"><b>📝</b><small>BCA-201</small><h3>Business English</h3><p>Professional English for writing, reading, speaking and listening in academic and workplace settings.</p><span>Open Notes →</span></a><a class="subject-card" href="#math"><b>📐</b><small>BCA-202</small><h3>Mathematics (Numerical Techniques)</h3><p>Numerical methods with concepts, formulas, worked examples and exam-oriented procedure.</p><span>Open Notes →</span></a>
+</div></section>
+<div id="notes"><section id="os" class="subject"><div class="subject-progress"><span>Operating System & Unix Progress</span><b id="prog-os">0%</b><div><i id="fill-os"></i></div></div><div class="subject-title"><div class="subject-icon">🖥️</div><div><small>BCA-205</small><h2>Operating System & Unix</h2><p>Operating systems and Unix/Linux, explained from the ground up.</p></div></div>
+<div class="chapters"><article class="chapter" id="chapter-1" data-title="1. Introduction to Operating Systems" data-searchable="true"><div class="chapter-top"><h3>1. Introduction to Operating Systems</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-1', '1. Introduction to Operating Systems')">☆ Save</button></div><div class="diagram"><div>User / Application</div><div class="arrow">↓</div><div class="diag-main">Operating System</div><div class="arrow">↓</div><div>CPU • Memory • Storage • I/O Devices</div></div><p>An operating system (OS) is the main system software that manages computer hardware and provides a working environment for application programs. When you open a browser, save a file, print a document, or run a C program, the OS coordinates the hardware resources needed to complete the task.
+
+The OS acts as an intermediary between the user/applications and hardware. Its major responsibilities include process management, memory management, file management, device management, protection and security.
+
+A useful way to remember the relationship is: User → Application → Operating System → Hardware.</p>
+<h4>Key Points</h4><ul><li>OS as a resource manager</li><li>OS as a control program</li><li>System calls and OS services</li><li>Multiprogramming and time-sharing</li><li>Storage and I/O organization</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-2" data-title="2. Process Management" data-searchable="true"><div class="chapter-top"><h3>2. Process Management</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-2', '2. Process Management')">☆ Save</button></div><p>A process is a program in execution. A program is a passive set of instructions stored on storage; a process is the active execution of those instructions. The OS creates processes, schedules them, gives them CPU time, and releases their resources when they finish.
+
+A process normally moves through states such as New, Ready, Running, Waiting/Blocked and Terminated. The process control block (PCB) stores information required by the OS to manage a process, such as its state, program counter, CPU registers and scheduling information.</p>
+<h4>Key Points</h4><ul><li>Process states and state transitions</li><li>Process Control Block</li><li>Context switching</li><li>Threads</li><li>Inter-process communication</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-3" data-title="3. CPU Scheduling" data-searchable="true"><div class="chapter-top"><h3>3. CPU Scheduling</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-3', '3. CPU Scheduling')">☆ Save</button></div><p>CPU scheduling decides which ready process should receive the CPU next. Good scheduling attempts to keep the processor busy while reducing waiting and response time.
+
+Important criteria include CPU utilization, throughput, turnaround time, waiting time and response time. FCFS is simple but can suffer from the convoy effect. SJF chooses the shortest estimated CPU burst and can minimize average waiting time under suitable assumptions. Round Robin gives each process a time quantum and is commonly associated with interactive systems.</p>
+<h4>Key Points</h4><ul><li>FCFS</li><li>SJF and SRTF</li><li>Priority scheduling</li><li>Round Robin</li><li>Scheduling evaluation</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-4" data-title="4. Synchronization" data-searchable="true"><div class="chapter-top"><h3>4. Synchronization</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-4', '4. Synchronization')">☆ Save</button></div><div class="diagram"><div>User / Application</div><div class="arrow">↓</div><div class="diag-main">Operating System</div><div class="arrow">↓</div><div>CPU • Memory • Storage • I/O Devices</div></div><p>When multiple processes or threads share data, their operations can interfere with one another. A race condition occurs when the final result depends on the timing of concurrent operations.
+
+The critical-section problem asks how to ensure that shared data is accessed safely. A solution should provide mutual exclusion, progress and bounded waiting. Semaphores are synchronization primitives used to coordinate access to shared resources.</p>
+<h4>Key Points</h4><ul><li>Race condition</li><li>Critical section</li><li>Mutual exclusion</li><li>Semaphores</li><li>Classical synchronization problems</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-5" data-title="5. Deadlocks" data-searchable="true"><div class="chapter-top"><h3>5. Deadlocks</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-5', '5. Deadlocks')">☆ Save</button></div><p>A deadlock occurs when a group of processes is permanently waiting for resources held by one another. The four necessary conditions are mutual exclusion, hold and wait, no preemption and circular wait.
+
+An OS can handle deadlocks through prevention, avoidance, detection and recovery. Avoidance tries to keep the system in a safe state; the Banker's algorithm is a classic example.</p>
+<h4>Key Points</h4><ul><li>Four necessary conditions</li><li>Prevention</li><li>Avoidance and safe state</li><li>Detection</li><li>Recovery</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-6" data-title="6. Memory Management" data-searchable="true"><div class="chapter-top"><h3>6. Memory Management</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-6', '6. Memory Management')">☆ Save</button></div><p>Memory management controls how processes use main memory. The OS keeps track of which areas are free and which are occupied and translates logical addresses used by programs into physical addresses.
+
+Paging divides logical memory into fixed-size pages and physical memory into frames. Segmentation divides a program according to logical units such as code, data or stack. Virtual memory allows a process to use an address space larger than the currently available physical memory by moving pages between RAM and secondary storage.</p>
+<h4>Key Points</h4><ul><li>Logical vs physical address</li><li>Swapping</li><li>Paging</li><li>Segmentation</li><li>Virtual memory and demand paging</li><li>Page replacement and thrashing</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-7" data-title="7. Unix/Linux Fundamentals" data-searchable="true"><div class="chapter-top"><h3>7. Unix/Linux Fundamentals</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-7', '7. Unix/Linux Fundamentals')">☆ Save</button></div><p>Unix is a family of multiuser, multitasking operating systems. Linux is a Unix-like open-source operating system. A Unix/Linux environment commonly provides a shell through which users can execute commands and combine utilities.
+
+Common commands include pwd (current directory), ls (list files), cd (change directory), mkdir (create directory), cp (copy), mv (move/rename), rm (remove), cat (display/concatenate), grep (search text), ps (process information) and kill (send a signal to a process).</p>
+<h4>Key Points</h4><ul><li>File-system hierarchy</li><li>Users and groups</li><li>File and directory commands</li><li>Permissions: chmod, chown, chgrp</li><li>Processes and jobs</li><li>Pipes and redirection</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-8" data-title="8. vi, Shell and Administration" data-searchable="true"><div class="chapter-top"><h3>8. vi, Shell and Administration</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-8', '8. vi, Shell and Administration')">☆ Save</button></div><p>vi/vim is a modal text editor. Its basic modes are command mode, insert mode and command-line mode. Shells provide a command interface and can also run shell scripts.
+
+Redirection sends input or output to files. A pipe connects the output of one command to the input of another, for example `ls | grep txt`. Shell scripting combines commands, variables, conditions and loops to automate repetitive tasks.</p>
+<h4>Key Points</h4><ul><li>vi modes and navigation</li><li>Shell variables and PATH</li><li>Wildcards</li><li>Pipes and redirection</li><li>Shell scripts and awk</li><li>User accounts, backups and administration</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article></div>
+<div class="quiz"><h3>🧠 Quiz & MCQ</h3><p>Answer the questions and see your score.</p><div class="q" data-answer="Operating system kernel"><b>1. Which OS component coordinates access to hardware resources?</b><div><button onclick="answer(this)" data-correct="true">Operating system kernel</button><button onclick="answer(this)" data-correct="false">Text editor</button><button onclick="answer(this)" data-correct="false">Compiler only</button><button onclick="answer(this)" data-correct="false">Web browser</button></div><span></span></div><div class="q" data-answer="Round Robin"><b>2. Which scheduling algorithm uses a time quantum?</b><div><button onclick="answer(this)" data-correct="false">FCFS</button><button onclick="answer(this)" data-correct="true">Round Robin</button><button onclick="answer(this)" data-correct="false">SJF</button><button onclick="answer(this)" data-correct="false">Bisection</button></div><span></span></div><div class="q" data-answer="pwd"><b>3. Which command displays the current directory?</b><div><button onclick="answer(this)" data-correct="true">pwd</button><button onclick="answer(this)" data-correct="false">cd</button><button onclick="answer(this)" data-correct="false">mv</button><button onclick="answer(this)" data-correct="false">grep</button></div><span></span></div><div class="q" data-answer="chmod"><b>4. Which command changes permissions?</b><div><button onclick="answer(this)" data-correct="true">chmod</button><button onclick="answer(this)" data-correct="false">cat</button><button onclick="answer(this)" data-correct="false">ps</button><button onclick="answer(this)" data-correct="false">who</button></div><span></span></div><div class="q" data-answer="Pages"><b>5. Paging divides logical memory into:</b><div><button onclick="answer(this)" data-correct="true">Pages</button><button onclick="answer(this)" data-correct="false">Files</button><button onclick="answer(this)" data-correct="false">Threads</button><button onclick="answer(this)" data-correct="false">Sectors</button></div><span></span></div><button class="score-btn" onclick="scoreQuiz(this)">Check Score</button><strong class="score"></strong></div></section><section id="c" class="subject"><div class="subject-progress"><span>Problem Solving Technique & Programming in C Progress</span><b id="prog-c">0%</b><div><i id="fill-c"></i></div></div><div class="subject-title"><div class="subject-icon">💻</div><div><small>BCA-204</small><h2>Problem Solving Technique & Programming in C</h2><p>Problem solving plus C programming, from first principles to pointers and files.</p></div></div>
+<div class="chapters"><article class="chapter" id="chapter-9" data-title="1. Problem Solving" data-searchable="true"><div class="chapter-top"><h3>1. Problem Solving</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-9', '1. Problem Solving')">☆ Save</button></div><div class="diagram flow"><div>Problem</div><span>→</span><div>Algorithm</div><span>→</span><div>Flowchart / Pseudocode</div><span>→</span><div>C Program</div><span>→</span><div>Test & Debug</div></div><p>Programming begins before code is written. First understand the problem, identify inputs and outputs, break the task into smaller steps, and define a precise algorithm. An algorithm is a finite sequence of unambiguous steps that transforms input into the desired output.
+
+A flowchart represents logic graphically, while pseudocode expresses the logic in structured natural language. Good problem solving also considers correctness, efficiency, edge cases and testing.</p>
+<h4>Key Points</h4><ul><li>Problem definition</li><li>Input/output analysis</li><li>Algorithms</li><li>Flowcharts</li><li>Pseudocode</li><li>Testing and debugging</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-10" data-title="2. C Fundamentals" data-searchable="true"><div class="chapter-top"><h3>2. C Fundamentals</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-10', '2. C Fundamentals')">☆ Save</button></div><p>C is a compiled, general-purpose programming language widely used for systems programming and learning core programming concepts. A basic C program contains preprocessing directives, declarations, functions and statements.
+
+Variables store values in memory and every variable has a data type. Common basic types include int, char, float and double. Operators build expressions for arithmetic, comparison, logical decisions and assignment.</p>
+<h4>Key Points</h4><ul><li>Identifiers and keywords</li><li>Data types</li><li>Constants and variables</li><li>Declarations and initialization</li><li>Operators and expressions</li><li>Library functions</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-11" data-title="3. Control Statements" data-searchable="true"><div class="chapter-top"><h3>3. Control Statements</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-11', '3. Control Statements')">☆ Save</button></div><p>Control statements determine the order in which statements execute. Selection is used when a program must choose between alternatives; iteration repeats a block while a condition or loop rule allows it.
+
+`if`, `if-else` and `switch` handle decisions. `for`, `while` and `do-while` handle repetition. `break` exits a loop or switch, while `continue` skips to the next loop iteration. Nested control structures combine these ideas.</p>
+<h4>Key Points</h4><ul><li>if and if-else</li><li>switch</li><li>for, while, do-while</li><li>Nested loops</li><li>break and continue</li><li>goto and comma operator</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-12" data-title="4. Functions and Recursion" data-searchable="true"><div class="chapter-top"><h3>4. Functions and Recursion</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-12', '4. Functions and Recursion')">☆ Save</button></div><div class="diagram flow"><div>Problem</div><span>→</span><div>Algorithm</div><span>→</span><div>Flowchart / Pseudocode</div><span>→</span><div>C Program</div><span>→</span><div>Test & Debug</div></div><p>A function is a named block of code designed to perform a specific task. Functions improve modularity, readability and reuse. A function may accept parameters and may return a value.
+
+Recursion occurs when a function calls itself. A recursive solution needs a base case that stops further calls; otherwise the program may continue indefinitely until the call stack is exhausted.</p>
+<h4>Key Points</h4><ul><li>Function declaration and prototype</li><li>Arguments and return values</li><li>Call by value</li><li>Recursion</li><li>Storage classes: auto, extern, static, register</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-13" data-title="5. Arrays and Strings" data-searchable="true"><div class="chapter-top"><h3>5. Arrays and Strings</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-13', '5. Arrays and Strings')">☆ Save</button></div><p>An array stores multiple values of the same type in contiguous memory locations. A one-dimensional array can represent a list; a two-dimensional array can represent a table or matrix.
+
+A C string is a sequence of characters terminated by the null character `\0`. Common string operations are provided by the standard library, but the programmer must always consider array size and termination to avoid invalid memory access.</p>
+<h4>Key Points</h4><ul><li>1-D arrays</li><li>Passing arrays to functions</li><li>2-D and multidimensional arrays</li><li>Character arrays</li><li>Strings and common operations</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-14" data-title="6. Structures, Unions and Bitwise Operations" data-searchable="true"><div class="chapter-top"><h3>6. Structures, Unions and Bitwise Operations</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-14', '6. Structures, Unions and Bitwise Operations')">☆ Save</button></div><p>A structure groups related values that may have different data types under one name. A union also groups different members, but its members share the same memory area, so only one member's stored value is meaningfully active at a time.
+
+Bitwise operators work directly on individual bits. They are useful in low-level programming, flags and compact data representations.</p>
+<h4>Key Points</h4><ul><li>Structures</li><li>Nested and self-referential structures</li><li>Passing structures to functions</li><li>Unions</li><li>AND, OR, XOR, NOT and shifts</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-15" data-title="7. Pointers" data-searchable="true"><div class="chapter-top"><h3>7. Pointers</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-15', '7. Pointers')">☆ Save</button></div><p>A pointer is a variable that stores a memory address. The address-of operator `&` obtains an address and the dereference operator `*` accesses the value at that address.
+
+Pointers make it possible to modify caller data through functions, work efficiently with arrays and build dynamic data structures. Pointer arithmetic depends on the pointed-to type; adding one advances by the size of that type.</p>
+<h4>Key Points</h4><ul><li>Pointer declaration</li><li>Address and dereference</li><li>Pointer arithmetic</li><li>Pointers and arrays</li><li>Arrays of pointers</li><li>Structures and pointers</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-16" data-title="8. File Handling and Preprocessor" data-searchable="true"><div class="chapter-top"><h3>8. File Handling and Preprocessor</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-16', '8. File Handling and Preprocessor')">☆ Save</button></div><p>File handling allows a C program to store data beyond the lifetime of a running program. A file is opened with a mode such as read, write or append, processed, and then closed.
+
+The preprocessor runs before compilation. Directives such as `#include`, `#define`, `#ifdef` and `#endif` support header inclusion, macros and conditional compilation.</p>
+<h4>Key Points</h4><ul><li>fopen and fclose</li><li>Character/string I/O</li><li>Formatted I/O</li><li>Block I/O</li><li>Sequential and random access</li><li>Macros and conditional compilation</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article></div>
+<div class="quiz"><h3>🧠 Quiz & MCQ</h3><p>Answer the questions and see your score.</p><div class="q" data-answer="*"><b>1. Which operator dereferences a pointer?</b><div><button onclick="answer(this)" data-correct="false">&</button><button onclick="answer(this)" data-correct="true">*</button><button onclick="answer(this)" data-correct="false">%</button><button onclick="answer(this)" data-correct="false">#</button></div><span></span></div><div class="q" data-answer="do-while"><b>2. Which loop executes at least once?</b><div><button onclick="answer(this)" data-correct="false">for</button><button onclick="answer(this)" data-correct="false">while</button><button onclick="answer(this)" data-correct="true">do-while</button><button onclick="answer(this)" data-correct="false">switch</button></div><span></span></div><div class="q" data-answer="static"><b>3. Which storage class preserves a local value between calls?</b><div><button onclick="answer(this)" data-correct="false">auto</button><button onclick="answer(this)" data-correct="true">static</button><button onclick="answer(this)" data-correct="false">register</button><button onclick="answer(this)" data-correct="false">extern</button></div><span></span></div><div class="q" data-answer="fopen()"><b>4. Which function opens a file?</b><div><button onclick="answer(this)" data-correct="true">fopen()</button><button onclick="answer(this)" data-correct="false">open()</button><button onclick="answer(this)" data-correct="false">file()</button><button onclick="answer(this)" data-correct="false">readfile()</button></div><span></span></div><div class="q" data-answer="&"><b>5. Which operator obtains an address?</b><div><button onclick="answer(this)" data-correct="false">*</button><button onclick="answer(this)" data-correct="true">&</button><button onclick="answer(this)" data-correct="false">-></button><button onclick="answer(this)" data-correct="false">%</button></div><span></span></div><button class="score-btn" onclick="scoreQuiz(this)">Check Score</button><strong class="score"></strong></div></section><section id="sad" class="subject"><div class="subject-progress"><span>System Analysis & Design Progress</span><b id="prog-sad">0%</b><div><i id="fill-sad"></i></div></div><div class="subject-title"><div class="subject-icon">📊</div><div><small>BCA-203</small><h2>System Analysis & Design</h2><p>Understand how information systems are investigated, planned, modelled, designed and maintained.</p></div></div>
+<div class="chapters"><article class="chapter" id="chapter-17" data-title="1. Systems and Information Systems" data-searchable="true"><div class="chapter-top"><h3>1. Systems and Information Systems</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-17', '1. Systems and Information Systems')">☆ Save</button></div><div class="diagram"><div>Planning</div><div class="arrow">↓</div><div>Analysis</div><div class="arrow">↓</div><div>Design</div><div class="arrow">↓</div><div>Implementation</div><div class="arrow">↓</div><div>Maintenance</div></div><p>A system is a set of interrelated components working together toward a purpose. An information system collects, processes, stores and distributes information to support operations and decisions.
+
+Systems may be classified in different ways, including physical or abstract, open or closed, deterministic or probabilistic, and real-time or non-real-time. A distributed system spreads processing or resources across multiple connected locations.</p>
+<h4>Key Points</h4><ul><li>System components</li><li>System boundaries and environment</li><li>Information systems</li><li>Real-time systems</li><li>Distributed systems</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-18" data-title="2. Systems Analyst" data-searchable="true"><div class="chapter-top"><h3>2. Systems Analyst</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-18', '2. Systems Analyst')">☆ Save</button></div><p>A systems analyst studies business problems and helps convert user needs into workable information-system requirements and designs. The role combines technical understanding with communication and analytical skills.
+
+An analyst communicates with users, managers and developers, investigates existing processes, identifies problems, evaluates alternatives and helps ensure that the proposed system meets organizational objectives.</p>
+<h4>Key Points</h4><ul><li>Roles and responsibilities</li><li>Technical skills</li><li>Management skills</li><li>Interpersonal skills</li><li>Fact finding</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-19" data-title="3. SDLC" data-searchable="true"><div class="chapter-top"><h3>3. SDLC</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-19', '3. SDLC')">☆ Save</button></div><p>The Systems Development Life Cycle (SDLC) is a structured framework for developing and maintaining information systems. Typical stages include project identification and planning, analysis, logical design, physical design, implementation and maintenance.
+
+Different development approaches may be selected according to project risk, requirements stability, user involvement and delivery needs. Prototyping is useful when users need to see and refine an early working model.</p>
+<h4>Key Points</h4><ul><li>Project initiation</li><li>Planning</li><li>Analysis</li><li>Logical design</li><li>Physical design</li><li>Implementation</li><li>Maintenance</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-20" data-title="4. Requirements and Feasibility" data-searchable="true"><div class="chapter-top"><h3>4. Requirements and Feasibility</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-20', '4. Requirements and Feasibility')">☆ Save</button></div><div class="diagram"><div>Planning</div><div class="arrow">↓</div><div>Analysis</div><div class="arrow">↓</div><div>Design</div><div class="arrow">↓</div><div>Implementation</div><div class="arrow">↓</div><div>Maintenance</div></div><p>Requirements describe what users and the organization need from a system. Good requirements are clear, testable, relevant and traceable.
+
+A feasibility study asks whether a proposed system is practical. Technical feasibility considers technology and skills; economic feasibility considers costs and benefits; operational feasibility considers organizational use and acceptance; legal feasibility considers laws, regulations and contracts.</p>
+<h4>Key Points</h4><ul><li>Interviews</li><li>Questionnaires</li><li>Observation/site visits</li><li>JAD</li><li>Prototyping</li><li>Technical, economic, operational and legal feasibility</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-21" data-title="5. Structured Analysis and Design" data-searchable="true"><div class="chapter-top"><h3>5. Structured Analysis and Design</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-21', '5. Structured Analysis and Design')">☆ Save</button></div><p>Structured analysis decomposes a complex system into smaller processes and data flows. Structured design transforms the analysis into modules with clear responsibilities.
+
+Good modular design aims for high cohesion and low coupling. High cohesion means a module's responsibilities belong closely together. Low coupling means modules have limited unnecessary dependency on one another.</p>
+<h4>Key Points</h4><ul><li>Top-down and bottom-up design</li><li>Modularity</li><li>Cohesion</li><li>Coupling</li><li>Structure charts</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-22" data-title="6. DFD, ER and Decision Tools" data-searchable="true"><div class="chapter-top"><h3>6. DFD, ER and Decision Tools</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-22', '6. DFD, ER and Decision Tools')">☆ Save</button></div><p>A Data Flow Diagram (DFD) shows how data moves between processes, data stores and external entities. It focuses on data movement rather than program code.
+
+Entity-Relationship (ER) modelling represents entities, attributes and relationships in a data-oriented view. Decision tables and decision trees represent business rules and help ensure that combinations of conditions are handled consistently.</p>
+<h4>Key Points</h4><ul><li>Context diagram</li><li>Levelled DFDs</li><li>ER diagrams</li><li>Decision tables</li><li>Decision trees</li><li>Structured English</li><li>Data dictionary</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-23" data-title="7. Documentation, Forms and Reports" data-searchable="true"><div class="chapter-top"><h3>7. Documentation, Forms and Reports</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-23', '7. Documentation, Forms and Reports')">☆ Save</button></div><p>Documentation records requirements, design decisions, procedures and user instructions so that the system can be understood and maintained. Examples include an SRS, system design specification, test design document and user manual.
+
+Forms should be organized, consistent, complete and economical. Reports should present relevant, accurate, clear and timely information in a form suitable for their users.</p>
+<h4>Key Points</h4><ul><li>SRS</li><li>Design specification</li><li>Test document</li><li>User manual</li><li>Form design</li><li>Report design</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-24" data-title="8. Audit and Security" data-searchable="true"><div class="chapter-top"><h3>8. Audit and Security</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-24', '8. Audit and Security')">☆ Save</button></div><p>A computer-system audit evaluates whether information systems, controls and procedures support organizational objectives and protect assets. Security aims to reduce unauthorized access, alteration, disclosure and disruption.
+
+Basic controls include authentication, authorization, backups, logging, separation of duties, secure configuration and periodic review.</p>
+<h4>Key Points</h4><ul><li>Audit objectives</li><li>Security controls</li><li>Access control</li><li>Data integrity</li><li>Backups</li><li>Audit evidence</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article></div>
+<div class="quiz"><h3>🧠 Quiz & MCQ</h3><p>Answer the questions and see your score.</p><div class="q" data-answer="Systems Development Life Cycle"><b>1. What does SDLC mean?</b><div><button onclick="answer(this)" data-correct="false">System Data Logic Code</button><button onclick="answer(this)" data-correct="true">Systems Development Life Cycle</button><button onclick="answer(this)" data-correct="false">Software Design Level Control</button><button onclick="answer(this)" data-correct="false">System Development Language</button></div><span></span></div><div class="q" data-answer="Technical feasibility"><b>2. Which feasibility examines technology and skills?</b><div><button onclick="answer(this)" data-correct="false">Economic feasibility</button><button onclick="answer(this)" data-correct="true">Technical feasibility</button><button onclick="answer(this)" data-correct="false">Legal feasibility</button><button onclick="answer(this)" data-correct="false">Social feasibility</button></div><span></span></div><div class="q" data-answer="Data Flow Diagram"><b>3. Which model shows data movement?</b><div><button onclick="answer(this)" data-correct="false">ER diagram</button><button onclick="answer(this)" data-correct="true">Data Flow Diagram</button><button onclick="answer(this)" data-correct="false">Gantt chart</button><button onclick="answer(this)" data-correct="false">Class diagram</button></div><span></span></div><div class="q" data-answer="High cohesion and low coupling"><b>4. Good modular design generally aims for:</b><div><button onclick="answer(this)" data-correct="false">Low cohesion and high coupling</button><button onclick="answer(this)" data-correct="true">High cohesion and low coupling</button><button onclick="answer(this)" data-correct="false">No modules</button><button onclick="answer(this)" data-correct="false">Maximum dependency</button></div><span></span></div><div class="q" data-answer="System Requirements Specification"><b>5. SRS stands for:</b><div><button onclick="answer(this)" data-correct="false">System Resource Summary</button><button onclick="answer(this)" data-correct="true">System Requirements Specification</button><button onclick="answer(this)" data-correct="false">Software Report Sheet</button><button onclick="answer(this)" data-correct="false">System Review Standard</button></div><span></span></div><button class="score-btn" onclick="scoreQuiz(this)">Check Score</button><strong class="score"></strong></div></section><section id="english" class="subject"><div class="subject-progress"><span>Business English Progress</span><b id="prog-english">0%</b><div><i id="fill-english"></i></div></div><div class="subject-title"><div class="subject-icon">📝</div><div><small>BCA-201</small><h2>Business English</h2><p>Professional English for writing, reading, speaking and listening in academic and workplace settings.</p></div></div>
+<div class="chapters"><article class="chapter" id="chapter-25" data-title="1. Grammar for Professional Communication" data-searchable="true"><div class="chapter-top"><h3>1. Grammar for Professional Communication</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-25', '1. Grammar for Professional Communication')">☆ Save</button></div><div class="diagram flow"><div>Purpose</div><span>→</span><div>Audience</div><span>→</span><div>Message</div><span>→</span><div>Clear Language</div><span>→</span><div>Review</div></div><p>Business English requires grammatical accuracy because unclear grammar can change meaning. Professional writing usually favors direct sentences, consistent tense, correct subject–verb agreement, precise vocabulary and appropriate punctuation.
+
+When choosing words, consider meaning and context. Avoid unnecessary repetition, slang and ambiguous expressions in formal communication.</p>
+<h4>Key Points</h4><ul><li>Commonly confused words</li><li>One-word substitutions</li><li>Phrases and idioms</li><li>Sentence clarity</li><li>Formal vs informal tone</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-26" data-title="2. Reading and Comprehension" data-searchable="true"><div class="chapter-top"><h3>2. Reading and Comprehension</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-26', '2. Reading and Comprehension')">☆ Save</button></div><p>Effective reading is more than understanding individual words. A reader should identify the main idea, supporting details, tone, purpose and relationships between ideas.
+
+Paraphrasing means expressing the same meaning in different words without changing the original idea. For tables, graphs and charts, identify the title, units, categories, trends and major comparisons before writing an interpretation.</p>
+<h4>Key Points</h4><ul><li>Paraphrasing</li><li>Reading comprehension</li><li>Speed reading</li><li>Graphs and tables</li><li>Analytical reading</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-27" data-title="3. Business Correspondence" data-searchable="true"><div class="chapter-top"><h3>3. Business Correspondence</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-27', '3. Business Correspondence')">☆ Save</button></div><p>Business correspondence communicates information between organizations or individuals. A professional email should have a meaningful subject, appropriate greeting, concise body, clear action/request and professional closing.
+
+Inquiries request information. Orders specify what is required. Complaint messages should state the problem objectively, provide relevant evidence and request a reasonable resolution.</p>
+<h4>Key Points</h4><ul><li>Email</li><li>Inquiry</li><li>Order</li><li>Complaint</li><li>Requesting information</li><li>Giving information</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-28" data-title="4. Reports, Notices and Meeting Documents" data-searchable="true"><div class="chapter-top"><h3>4. Reports, Notices and Meeting Documents</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-28', '4. Reports, Notices and Meeting Documents')">☆ Save</button></div><div class="diagram flow"><div>Purpose</div><span>→</span><div>Audience</div><span>→</span><div>Message</div><span>→</span><div>Clear Language</div><span>→</span><div>Review</div></div><p>A notice communicates important information briefly to a defined audience. A proposal presents a plan or recommendation and explains its purpose, method, resources and expected outcome.
+
+An agenda lists the items to be discussed in a meeting. Minutes provide an accurate record of proceedings, decisions and action items.</p>
+<h4>Key Points</h4><ul><li>Notices</li><li>Proposals</li><li>Abstracts</li><li>Summary writing</li><li>Agenda</li><li>Minutes</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-29" data-title="5. Job Applications and Professional Writing" data-searchable="true"><div class="chapter-top"><h3>5. Job Applications and Professional Writing</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-29', '5. Job Applications and Professional Writing')">☆ Save</button></div><p>A job application should connect the applicant's qualifications with the requirements of the role. A professional résumé presents relevant education, skills, projects, experience and achievements in a clear structure.
+
+Expository writing explains; argumentative writing presents and supports a position; descriptive writing creates a clear picture; narrative writing presents events in sequence.</p>
+<h4>Key Points</h4><ul><li>Job application</li><li>Résumé basics</li><li>Professional profile</li><li>Essay types</li><li>Logical paragraph structure</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-30" data-title="6. Speaking and Presentation Skills" data-searchable="true"><div class="chapter-top"><h3>6. Speaking and Presentation Skills</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-30', '6. Speaking and Presentation Skills')">☆ Save</button></div><p>Effective speaking combines clear language, logical organization, appropriate pace and awareness of the audience. A presentation normally has an opening, main points, evidence/examples and a conclusion.
+
+In a debate, distinguish claims from evidence and respond to opposing views respectfully. Impromptu speaking becomes easier when ideas are organized quickly into a simple beginning–middle–end structure.</p>
+<h4>Key Points</h4><ul><li>Business etiquette</li><li>Impromptu speech</li><li>Debate</li><li>Role play</li><li>Presentation structure</li><li>Handling questions</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-31" data-title="7. Listening Skills" data-searchable="true"><div class="chapter-top"><h3>7. Listening Skills</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-31', '7. Listening Skills')">☆ Save</button></div><p>Professional listening involves receiving, interpreting and responding to spoken information. Listen for the purpose first, then identify key facts, instructions, numbers, names and action items.
+
+Good listeners avoid interrupting unnecessarily, ask focused clarification questions and confirm important details when needed.</p>
+<h4>Key Points</h4><ul><li>Listening for main ideas</li><li>Listening for details</li><li>Note-taking</li><li>Clarification</li><li>Professional response</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-32" data-title="8. Advanced Workplace Communication" data-searchable="true"><div class="chapter-top"><h3>8. Advanced Workplace Communication</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-32', '8. Advanced Workplace Communication')">☆ Save</button></div><p>Strong professional communication is concise without becoming incomplete. Use headings, bullets and short paragraphs when they improve scanning. Match the level of formality to the audience and situation.
+
+Before sending an important message, check purpose, facts, tone, grammar, attachments and the requested next action.</p>
+<h4>Key Points</h4><ul><li>Concise writing</li><li>Tone management</li><li>Professional editing</li><li>Presentation confidence</li><li>Workplace communication</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article></div>
+<div class="quiz"><h3>🧠 Quiz & MCQ</h3><p>Answer the questions and see your score.</p><div class="q" data-answer="Clear and professional language"><b>1. A professional business email should usually use:</b><div><button onclick="answer(this)" data-correct="false">Slang</button><button onclick="answer(this)" data-correct="true">Clear and professional language</button><button onclick="answer(this)" data-correct="false">Only capital letters</button><button onclick="answer(this)" data-correct="false">Unstructured text</button></div><span></span></div><div class="q" data-answer="Meeting proceedings and decisions"><b>2. Minutes are used to record:</b><div><button onclick="answer(this)" data-correct="false">Product prices</button><button onclick="answer(this)" data-correct="true">Meeting proceedings and decisions</button><button onclick="answer(this)" data-correct="false">Passwords</button><button onclick="answer(this)" data-correct="false">Advertisements</button></div><span></span></div><div class="q" data-answer="Express the same meaning in new wording"><b>3. A paraphrase should:</b><div><button onclick="answer(this)" data-correct="false">Copy every sentence</button><button onclick="answer(this)" data-correct="true">Express the same meaning in new wording</button><button onclick="answer(this)" data-correct="false">Change the meaning</button><button onclick="answer(this)" data-correct="false">Add unrelated ideas</button></div><span></span></div><div class="q" data-answer="Information"><b>4. An inquiry normally asks for:</b><div><button onclick="answer(this)" data-correct="true">Information</button><button onclick="answer(this)" data-correct="false">A punishment</button><button onclick="answer(this)" data-correct="false">A password</button><button onclick="answer(this)" data-correct="false">A resignation</button></div><span></span></div><div class="q" data-answer="A clear structure"><b>5. A presentation should have:</b><div><button onclick="answer(this)" data-correct="false">No plan</button><button onclick="answer(this)" data-correct="true">A clear structure</button><button onclick="answer(this)" data-correct="false">Only quotations</button><button onclick="answer(this)" data-correct="false">No conclusion</button></div><span></span></div><button class="score-btn" onclick="scoreQuiz(this)">Check Score</button><strong class="score"></strong></div></section><section id="math" class="subject"><div class="subject-progress"><span>Mathematics (Numerical Techniques) Progress</span><b id="prog-math">0%</b><div><i id="fill-math"></i></div></div><div class="subject-title"><div class="subject-icon">📐</div><div><small>BCA-202</small><h2>Mathematics (Numerical Techniques)</h2><p>Numerical methods with concepts, formulas, worked examples and exam-oriented procedure.</p></div></div>
+<div class="chapters"><article class="chapter" id="chapter-33" data-title="1. Errors in Numerical Computation" data-searchable="true"><div class="chapter-top"><h3>1. Errors in Numerical Computation</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-33', '1. Errors in Numerical Computation')">☆ Save</button></div><div class="diagram"><div>Known Data</div><div class="arrow">↓</div><div>Numerical Method</div><div class="arrow">↓</div><div>Approximation</div><div class="arrow">↓</div><div>Error Check</div><div class="arrow">↓</div><div>Accept / Refine</div></div><p>Numerical methods work with approximations, so understanding error is essential. If the true value is x and the approximate value is xₐ, the absolute error is |x − xₐ|. Relative error compares the absolute error with the magnitude of the true value; percentage error is relative error multiplied by 100.
+
+Accuracy and precision are related but different: accuracy concerns closeness to the true value, while precision concerns consistency or resolution of measurements.</p>
+<h4>Key Points</h4><ul><li>Absolute error</li><li>Relative error</li><li>Percentage error</li><li>General error formula</li><li>Accuracy and precision</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-34" data-title="2. Roots of Equations" data-searchable="true"><div class="chapter-top"><h3>2. Roots of Equations</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-34', '2. Roots of Equations')">☆ Save</button></div><p>A root of f(x)=0 is a value of x for which the function becomes zero. Numerical root-finding is useful when an algebraic equation cannot be solved conveniently in closed form.
+
+Bisection starts with an interval [a,b] where f(a) and f(b) have opposite signs. It repeatedly takes the midpoint and keeps the half-interval that still brackets a root. Newton-Raphson uses the tangent-line idea: xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ).</p>
+<h4>Key Points</h4><ul><li>Bisection</li><li>Iteration method</li><li>False position</li><li>Newton-Raphson</li><li>Stopping criteria</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-35" data-title="3. Interpolation and Finite Differences" data-searchable="true"><div class="chapter-top"><h3>3. Interpolation and Finite Differences</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-35', '3. Interpolation and Finite Differences')">☆ Save</button></div><p>Interpolation estimates an unknown value inside the range of known data. For equally spaced data, finite differences organize changes between successive values.
+
+Forward differences are convenient near the beginning of a table, backward differences near the end, and central-difference formulas near the middle. Difference tables also help check whether the tabulated data behaves like a polynomial of a particular degree.</p>
+<h4>Key Points</h4><ul><li>Forward differences</li><li>Backward differences</li><li>Central differences</li><li>Difference tables</li><li>Newton interpolation</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-36" data-title="4. Unequal Spacing and Lagrange Interpolation" data-searchable="true"><div class="chapter-top"><h3>4. Unequal Spacing and Lagrange Interpolation</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-36', '4. Unequal Spacing and Lagrange Interpolation')">☆ Save</button></div><div class="diagram"><div>Known Data</div><div class="arrow">↓</div><div>Numerical Method</div><div class="arrow">↓</div><div>Approximation</div><div class="arrow">↓</div><div>Error Check</div><div class="arrow">↓</div><div>Accept / Refine</div></div><p>When x-values are not equally spaced, formulas based on a fixed difference step cannot be used directly. Lagrange interpolation constructs a polynomial from the available points without requiring equal spacing.
+
+Divided differences provide another systematic approach and lead to Newton's general interpolation formula. In an exam, clearly write the data table, identify the required x-value and substitute carefully.</p>
+<h4>Key Points</h4><ul><li>Gauss central difference formula</li><li>Lagrange interpolation</li><li>Divided differences</li><li>Newton general interpolation</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-37" data-title="5. Numerical Differentiation and Integration" data-searchable="true"><div class="chapter-top"><h3>5. Numerical Differentiation and Integration</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-37', '5. Numerical Differentiation and Integration')">☆ Save</button></div><p>Numerical differentiation estimates derivatives from tabulated or approximate values. Numerical integration estimates the area under a curve when an exact integral is inconvenient.
+
+The trapezoidal rule replaces small pieces of the curve by trapezoids. Simpson's 1/3 and 3/8 rules use polynomial approximations and can give better accuracy for sufficiently smooth functions when their spacing requirements are satisfied.</p>
+<h4>Key Points</h4><ul><li>Numerical differentiation</li><li>Trapezoidal rule</li><li>Simpson's 1/3 rule</li><li>Simpson's 3/8 rule</li><li>Error awareness</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-38" data-title="6. Linear Systems — Direct Methods" data-searchable="true"><div class="chapter-top"><h3>6. Linear Systems — Direct Methods</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-38', '6. Linear Systems — Direct Methods')">☆ Save</button></div><p>A system of simultaneous linear equations can be written as AX=B. Direct methods transform the system into a form from which the unknowns can be obtained.
+
+Gaussian elimination uses elementary row operations to produce an upper-triangular system followed by back substitution. Gauss-Jordan continues elimination until a reduced form is obtained. Factorization methods split the coefficient matrix into simpler factors.</p>
+<h4>Key Points</h4><ul><li>Gauss elimination</li><li>Gauss-Jordan</li><li>Factorization</li><li>Ill-conditioned systems</li><li>Back substitution</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-39" data-title="7. Linear Systems — Iterative Methods" data-searchable="true"><div class="chapter-top"><h3>7. Linear Systems — Iterative Methods</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-39', '7. Linear Systems — Iterative Methods')">☆ Save</button></div><p>Iterative methods begin with an initial approximation and repeatedly improve it. Jacobi computes new values from the previous iteration; Gauss-Seidel uses newly computed values immediately within the same iteration.
+
+Convergence depends on properties of the system and the chosen starting values. A stopping rule is needed, such as requiring successive approximations to differ by less than a chosen tolerance.</p>
+<h4>Key Points</h4><ul><li>Gauss-Jacobi</li><li>Gauss-Seidel</li><li>Convergence</li><li>Stopping criteria</li><li>Iteration tables</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article><article class="chapter" id="chapter-40" data-title="8. Ordinary Differential Equations" data-searchable="true"><div class="chapter-top"><h3>8. Ordinary Differential Equations</h3><button class="bookmark-btn" onclick="toggleBookmark('chapter-40', '8. Ordinary Differential Equations')">☆ Save</button></div><p>Numerical methods approximate solutions of differential equations when an exact solution is difficult or unnecessary. Euler's method uses the slope at the current point to move to the next point.
+
+Modified Euler improves the basic estimate by using additional slope information. Runge-Kutta methods use several slope evaluations within a step; the fourth-order method is widely used because it offers good accuracy without requiring higher derivatives.</p>
+<h4>Key Points</h4><ul><li>Taylor series method</li><li>Euler method</li><li>Modified Euler</li><li>RK2</li><li>RK4</li><li>Step-size selection</li></ul>
+<div class="exam"><b>Exam Focus:</b> Define the concept, explain its purpose, give a suitable example, and compare it with related concepts where applicable.</div></article></div>
+<div class="quiz"><h3>🧠 Quiz & MCQ</h3><p>Answer the questions and see your score.</p><div class="q" data-answer="Bisection method"><b>1. Which method repeatedly halves a bracketing interval?</b><div><button onclick="answer(this)" data-correct="false">Newton-Raphson</button><button onclick="answer(this)" data-correct="true">Bisection method</button><button onclick="answer(this)" data-correct="false">Gauss-Seidel</button><button onclick="answer(this)" data-correct="false">Simpson's rule</button></div><span></span></div><div class="q" data-answer="Relative error × 100"><b>2. Percentage error is based on:</b><div><button onclick="answer(this)" data-correct="true">Relative error × 100</button><button onclick="answer(this)" data-correct="false">Absolute value only</button><button onclick="answer(this)" data-correct="false">True value + error</button><button onclick="answer(this)" data-correct="false">Difference table only</button></div><span></span></div><div class="q" data-answer="Lagrange interpolation"><b>3. Which interpolation method handles unequal spacing directly?</b><div><button onclick="answer(this)" data-correct="true">Lagrange interpolation</button><button onclick="answer(this)" data-correct="false">Trapezoidal rule</button><button onclick="answer(this)" data-correct="false">Bisection</button><button onclick="answer(this)" data-correct="false">Gauss-Seidel</button></div><span></span></div><div class="q" data-answer="Gauss-Seidel"><b>4. Which method is commonly used for iterative linear systems?</b><div><button onclick="answer(this)" data-correct="true">Gauss-Seidel</button><button onclick="answer(this)" data-correct="false">Gauss-Jordan only</button><button onclick="answer(this)" data-correct="false">Lagrange</button><button onclick="answer(this)" data-correct="false">Newton-Raphson</button></div><span></span></div><div class="q" data-answer="Ordinary differential equations"><b>5. RK4 is used for:</b><div><button onclick="answer(this)" data-correct="true">Ordinary differential equations</button><button onclick="answer(this)" data-correct="false">File handling</button><button onclick="answer(this)" data-correct="false">Sorting</button><button onclick="answer(this)" data-correct="false">Operating systems</button></div><span></span></div><button class="score-btn" onclick="scoreQuiz(this)">Check Score</button><strong class="score"></strong></div></section></div>
+
+<section id="exam-mode" class="exam-mode">
+  <div class="heading"><small>V3.2 EXAM PREPARATION</small><h2>🧠 Exam Mode</h2>
+  <p>Choose a subject, set the number of questions and test yourself. Questions are generated from the subject question bank.</p></div>
+  <div class="exam-controls">
+    <label>Subject<select id="quizSubject"><option value="os">BCA-205 — Operating System & Unix</option><option value="c">BCA-204 — Problem Solving Technique & Programming in C</option><option value="sad">BCA-203 — System Analysis & Design</option><option value="english">BCA-201 — Business English</option><option value="math">BCA-202 — Mathematics (Numerical Techniques)</option></select></label>
+    <label>Questions<select id="quizCount"><option>10</option><option>15</option><option>20</option></select></label>
+    <label>Time<select id="quizTime"><option value="0">No Timer</option><option value="300">5 Minutes</option><option value="600">10 Minutes</option><option value="900">15 Minutes</option></select></label>
+    <button class="primary exam-start" onclick="startExam()">Start Exam</button>
+  </div>
+  <div id="examArea" class="exam-area" hidden>
+    <div class="exam-top"><b id="examTitle">Exam</b><span>Question <strong id="examNum">1</strong>/<strong id="examTotal">10</strong></span><span id="timer">No Timer</span></div>
+    <div class="exam-progress"><i id="examProgressFill"></i></div>
+    <div id="examQuestion"></div>
+    <div class="exam-nav"><button onclick="prevQuestion()">← Previous</button><button onclick="nextQuestion()">Next →</button><button class="submit-exam" onclick="finishExam()">Submit Exam</button></div>
+  </div>
+  <div id="examResult" class="exam-result" hidden></div>
+</section>
+
+
+<section id="numerical-lab" class="numerical-lab">
+  <div class="heading">
+    <small>V3.3 NUMERICAL TECHNIQUES LAB</small>
+    <h2>📐 Step-by-Step Numerical Calculator</h2>
+    <p>Enter your values and practise the main AKU Numerical Techniques methods. The calculator shows the working steps for learning and exam preparation.</p>
+  </div>
+
+  <div class="lab-tabs">
+    <button class="lab-tab active" onclick="showLab('root')">Root Finding</button>
+    <button class="lab-tab" onclick="showLab('interp')">Interpolation</button>
+    <button class="lab-tab" onclick="showLab('integrate')">Integration</button>
+    <button class="lab-tab" onclick="showLab('linear')">Linear Systems</button>
+    <button class="lab-tab" onclick="showLab('ode')">ODE</button>
+  </div>
+
+  <div id="lab-root" class="lab-panel">
+    <h3>Root Finding</h3>
+    <p class="lab-help">For this browser lab, enter a polynomial such as <code>x^3-x-2</code>.</p>
+    <div class="lab-form">
+      <label>f(x)<input id="r-f" value="x^3-x-2"></label>
+      <label>Method<select id="r-method"><option value="bisect">Bisection</option><option value="newton">Newton-Raphson</option><option value="false">False Position</option></select></label>
+      <label>a / x₀<input id="r-a" type="number" value="1"></label>
+      <label>b<input id="r-b" type="number" value="2"></label>
+      <label>Tolerance<input id="r-tol" type="number" value="0.0001" step="0.0001"></label>
+      <button class="primary" onclick="solveRoot()">Calculate</button>
+    </div>
+    <div id="r-out" class="lab-output"></div>
+  </div>
+
+  <div id="lab-interp" class="lab-panel" hidden>
+    <h3>Lagrange Interpolation</h3>
+    <p class="lab-help">Enter x and y values separated by commas, for example <code>1,2,3</code> and <code>2,5,10</code>.</p>
+    <div class="lab-form">
+      <label>X values<input id="i-x" value="1,2,3"></label>
+      <label>Y values<input id="i-y" value="2,5,10"></label>
+      <label>Find y at x<input id="i-xp" type="number" value="1.5" step="0.1"></label>
+      <button class="primary" onclick="solveLagrange()">Calculate</button>
+    </div>
+    <div id="i-out" class="lab-output"></div>
+  </div>
+
+  <div id="lab-integrate" class="lab-panel" hidden>
+    <h3>Numerical Integration</h3>
+    <p class="lab-help">Use functions such as <code>x^2</code>, <code>sin(x)</code>, <code>1/(1+x^2)</code>.</p>
+    <div class="lab-form">
+      <label>f(x)<input id="g-f" value="x^2"></label>
+      <label>a<input id="g-a" type="number" value="0"></label>
+      <label>b<input id="g-b" type="number" value="2"></label>
+      <label>n (even for Simpson)<input id="g-n" type="number" value="10" min="2" step="2"></label>
+      <button class="primary" onclick="solveIntegration()">Calculate</button>
+    </div>
+    <div id="g-out" class="lab-output"></div>
+  </div>
+
+  <div id="lab-linear" class="lab-panel" hidden>
+    <h3>Gauss Elimination</h3>
+    <p class="lab-help">Enter an augmented matrix as rows separated by semicolons. Example: <code>2,1,5;1,-1,1</code>.</p>
+    <div class="lab-form">
+      <label>Augmented matrix<textarea id="l-matrix">2,1,5;1,-1,1</textarea></label>
+      <button class="primary" onclick="solveGaussian()">Calculate</button>
+    </div>
+    <div id="l-out" class="lab-output"></div>
+  </div>
+
+  <div id="lab-ode" class="lab-panel" hidden>
+    <h3>Runge-Kutta 4th Order (RK4)</h3>
+    <p class="lab-help">For dy/dx=f(x,y), enter a function such as <code>x+y</code>.</p>
+    <div class="lab-form">
+      <label>f(x,y)<input id="o-f" value="x+y"></label>
+      <label>x₀<input id="o-x" type="number" value="0"></label>
+      <label>y₀<input id="o-y" type="number" value="1"></label>
+      <label>Step h<input id="o-h" type="number" value="0.1" step="0.01"></label>
+      <label>Steps<input id="o-n" type="number" value="5" min="1"></label>
+      <button class="primary" onclick="solveRK4()">Calculate</button>
+    </div>
+    <div id="o-out" class="lab-output"></div>
+  </div>
+</section>
+
+
+<section id="c-lab" class="practice-lab">
+  <div class="heading"><small>V3.4 C PROGRAMMING LAB</small><h2>💻 C Practice Lab</h2>
+  <p>Practice beginner-to-advanced C concepts through examples, output prediction, error finding and coding challenges.</p></div>
+
+  <div class="c-tabs">
+    <button class="c-tab active" onclick="showCTab('examples')">Code Examples</button>
+    <button class="c-tab" onclick="showCTab('output')">Predict Output</button>
+    <button class="c-tab" onclick="showCTab('debug')">Find the Error</button>
+    <button class="c-tab" onclick="showCTab('challenge')">Challenges</button>
+  </div>
+
+  <div id="c-examples" class="c-panel">
+    <h3>📘 C Code Examples</h3>
+    <label class="block-label">Choose example
+      <select id="c-example-select" onchange="renderCExample()">
+        <option value="hello">Hello World</option>
+        <option value="sum">Sum of Two Numbers</option>
+        <option value="even">Even or Odd</option>
+        <option value="factorial">Factorial</option>
+        <option value="array">Array Sum</option>
+        <option value="pointer">Pointer Basics</option>
+        <option value="file">File Handling</option>
+      </select>
+    </label>
+    <pre id="c-example-code" class="code-box"></pre>
+    <button class="copy-btn" onclick="copyCode('c-example-code')">Copy Code</button>
+    <p id="c-example-explain" class="lab-muted"></p>
+  </div>
+
+  <div id="c-output" class="c-panel" hidden>
+    <h3>🎯 Predict the Output</h3>
+    <div id="output-question"></div>
+    <button class="primary" onclick="newOutputQuestion()">New Question</button>
+  </div>
+
+  <div id="c-debug" class="c-panel" hidden>
+    <h3>🐞 Find the Error</h3>
+    <div id="debug-question"></div>
+    <button class="primary" onclick="newDebugQuestion()">New Question</button>
+  </div>
+
+  <div id="c-challenge" class="c-panel" hidden>
+    <h3>🏆 Coding Challenges</h3>
+    <div class="challenge-grid">
+      <article><b>Easy</b><h4>Largest of Two</h4><p>Write a program to input two integers and display the larger value.</p><button onclick="showHint(this,'Use if-else and compare a > b.')">Hint</button></article>
+      <article><b>Easy</b><h4>Reverse a Number</h4><p>Input an integer and print its digits in reverse order.</p><button onclick="showHint(this,'Use a loop, remainder (%) and integer division (/).')">Hint</button></article>
+      <article><b>Medium</b><h4>Prime Numbers</h4><p>Print all prime numbers between 1 and N.</p><button onclick="showHint(this,'Test divisibility from 2 up to sqrt(n) for each candidate.')">Hint</button></article>
+      <article><b>Medium</b><h4>Matrix Addition</h4><p>Read two matrices of the same size and print their sum.</p><button onclick="showHint(this,'Use nested loops over rows and columns.')">Hint</button></article>
+      <article><b>Hard</b><h4>String Frequency</h4><p>Count the frequency of each character in a string.</p><button onclick="showHint(this,'Use a character array and a frequency array indexed by character code.')">Hint</button></article>
+      <article><b>Hard</b><h4>File Word Count</h4><p>Read a text file and count characters, words and lines.</p><button onclick="showHint(this,'Use fgetc() and maintain counters for whitespace and newline.')">Hint</button></article>
+    </div>
+  </div>
+</section>
+
+
+<section id="unix-lab" class="practice-lab unix-lab">
+  <div class="heading"><small>V3.4 UNIX PRACTICE LAB</small><h2>🖥️ Unix Terminal Simulator</h2>
+  <p>Practise common Unix/Linux commands in a safe simulated terminal. This does not change your device files.</p></div>
+  <div class="terminal-wrap">
+    <div class="terminal-head"><span>●</span><b>student@bca:~</b><button onclick="clearTerminal()">Clear</button></div>
+    <div id="terminal" class="terminal"><div>Welcome to the BCA Unix Simulator.</div><div>Type <b>help</b> to see available commands.</div></div>
+    <div class="terminal-input"><span>student@bca:~$</span><input id="terminalInput" autocomplete="off" placeholder="type a command..." onkeydown="terminalKey(event)"></div>
+  </div>
+  <div class="unix-cheats">
+    <button onclick="runCommand('pwd')">pwd</button><button onclick="runCommand('ls')">ls</button><button onclick="runCommand('whoami')">whoami</button>
+    <button onclick="runCommand('date')">date</button><button onclick="runCommand('history')">history</button><button onclick="runCommand('help')">help</button>
+  </div>
+  <div class="command-grid">
+    <div><code>pwd</code><span>Show current directory</span></div>
+    <div><code>ls</code><span>List files</span></div>
+    <div><code>cd</code><span>Change directory</span></div>
+    <div><code>mkdir</code><span>Create directory</span></div>
+    <div><code>cat</code><span>Display file content</span></div>
+    <div><code>grep</code><span>Search text</span></div>
+    <div><code>chmod</code><span>Change permissions</span></div>
+    <div><code>ps</code><span>Show processes</span></div>
+    <div><code>kill</code><span>Send process signal</span></div>
+    <div><code>echo</code><span>Print text</span></div>
+    <div><code>man</code><span>Open command help</span></div>
+    <div><code>clear</code><span>Clear terminal</span></div>
+  </div>
+</section>
+
+
+<section id="revision" class="revision-v41">
+  <div class="heading">
+    <small>V4.1 EXAM REVISION</small>
+    <h2>⚡ Quick Revision</h2>
+    <p>Fast revision cards for definitions, formulas, commands, differences and high-value exam points.</p>
+  </div>
+  <div class="revision-filter">
+    <label>Subject
+      <select id="revisionSubject" onchange="renderRevision()">
+        <option value="all">All Subjects</option>
+        <option value="os">Operating System & Unix</option>
+        <option value="c">Problem Solving Technique & Programming in C</option>
+        <option value="sad">System Analysis & Design</option>
+        <option value="english">Business English</option>
+        <option value="math">Mathematics (Numerical Techniques)</option>
+      </select>
+    </label>
+    <input id="revisionSearch" placeholder="Search revision points..." oninput="renderRevision()">
+  </div>
+  <div id="revisionCards" class="revision-grid"></div>
+</section>
+
+
+<section id="question-bank" class="question-bank-v41">
+  <div class="heading">
+    <small>V4.1 QUESTION BANK</small>
+    <h2>📝 Exam Question Bank</h2>
+    <p>Practice questions arranged by subject and marks. Answers are hidden until you choose to reveal them.</p>
+  </div>
+  <div class="qb-controls">
+    <select id="qbSubject" onchange="renderQuestionBank()">
+      <option value="all">All Subjects</option>
+      <option value="os">Operating System & Unix</option>
+      <option value="c">Problem Solving Technique & Programming in C</option>
+      <option value="sad">System Analysis & Design</option>
+      <option value="english">Business English</option>
+      <option value="math">Mathematics (Numerical Techniques)</option>
+    </select>
+    <select id="qbMarks" onchange="renderQuestionBank()">
+      <option value="all">All Marks</option>
+      <option value="2">2 Marks</option>
+      <option value="5">5 Marks</option>
+      <option value="10">10 Marks</option>
+    </select>
+    <select id="qbType" onchange="renderQuestionBank()">
+      <option value="all">All Types</option>
+      <option value="important">⭐ Important</option>
+      <option value="normal">Practice</option>
+    </select>
+  </div>
+  <div id="questionCards" class="question-grid"></div>
+</section>
+
+
+<section id="analytics" class="analytics-v42">
+  <div class="heading">
+    <small>V4.2 PERFORMANCE CENTER</small>
+    <h2>📊 My Performance</h2>
+    <p>Track quiz performance, study progress and achievements in this browser.</p>
+  </div>
+
+  <div class="analytics-overview">
+    <article class="stat-card"><span>QUIZZES TAKEN</span><strong id="statQuizzes">0</strong><small>Completed Exam Mode attempts</small></article>
+    <article class="stat-card"><span>BEST SCORE</span><strong id="statBest">0%</strong><small>Highest subject score</small></article>
+    <article class="stat-card"><span>AVERAGE SCORE</span><strong id="statAverage">0%</strong><small>Across saved attempts</small></article>
+    <article class="stat-card"><span>CHAPTERS SAVED</span><strong id="statSaved">0</strong><small>Bookmarks used for revision</small></article>
+  </div>
+
+  <div class="analytics-grid">
+    <article class="analytics-card">
+      <div class="card-title"><h3>Subject Performance</h3><span>Best score</span></div>
+      <div id="subjectAnalytics"></div>
+    </article>
+    <article class="analytics-card">
+      <div class="card-title"><h3>Recent Quiz Results</h3><button class="small-btn" onclick="clearAnalytics()">Clear Results</button></div>
+      <div id="recentResults"></div>
+    </article>
+  </div>
+
+  <div class="achievements">
+    <div class="card-title"><h3>🏆 Achievements</h3><span id="achievementCount">0 unlocked</span></div>
+    <div id="achievementGrid" class="achievement-grid"></div>
+  </div>
+</section>
+
+
+<section id="focus-mode" class="focus-v43">
+  <div class="heading">
+    <small>V4.3 FOCUS STUDY MODE</small>
+    <h2>🎯 Focus Mode</h2>
+    <p>Study one task at a time with a distraction-free timer, session goal and quick controls.</p>
+  </div>
+
+  <div class="focus-layout">
+    <article class="focus-card focus-timer-card">
+      <div class="focus-status"><span id="focusStatusDot"></span><span id="focusStatus">Ready to study</span></div>
+      <div id="focusTimer" class="focus-timer">25:00</div>
+      <div class="focus-session-label" id="focusSessionLabel">Focus Session</div>
+      <div class="focus-progress"><i id="focusProgressFill"></i></div>
+      <div class="focus-controls">
+        <button class="primary" id="focusStartBtn" onclick="focusStart()">▶ Start</button>
+        <button onclick="focusPause()">⏸ Pause</button>
+        <button onclick="focusReset()">↻ Reset</button>
+      </div>
+      <div class="focus-presets">
+        <button onclick="setFocusMinutes(15)">15 min</button>
+        <button class="selected" onclick="setFocusMinutes(25)">25 min</button>
+        <button onclick="setFocusMinutes(45)">45 min</button>
+        <button onclick="setFocusMinutes(60)">60 min</button>
+      </div>
+    </article>
+
+    <article class="focus-card">
+      <div class="focus-card-head"><h3>📌 Session Goal</h3><span id="focusGoalCount">0 min</span></div>
+      <input id="focusGoal" class="focus-goal-input" maxlength="100" placeholder="e.g. Revise CPU Scheduling">
+      <p class="focus-muted">Set a clear target before starting. It will be remembered for this browser.</p>
+      <div class="focus-stats">
+        <div><b id="focusSessions">0</b><span>Sessions</span></div>
+        <div><b id="focusMinutes">0</b><span>Minutes</span></div>
+        <div><b id="focusToday">0</b><span>Today</span></div>
+      </div>
+    </article>
+
+    <article class="focus-card focus-tips">
+      <h3>💡 Focus Checklist</h3>
+      <label><input type="checkbox"> Keep only the required study tab open</label>
+      <label><input type="checkbox"> Read the chapter before attempting the quiz</label>
+      <label><input type="checkbox"> Write down difficult points</label>
+      <label><input type="checkbox"> Finish with a 5-minute revision</label>
+      <a href="#revision" class="focus-link">⚡ Open Quick Revision →</a>
+    </article>
+  </div>
+</section>
+
+
+<section id="formula-sheet" class="toolkit-v44">
+  <div class="heading">
+    <small>V4.4 STUDY TOOLKIT</small>
+    <h2>📌 Formula & Quick Reference Sheet</h2>
+    <p>Keep high-use formulas, commands and exam facts in one fast-reference place.</p>
+  </div>
+  <div class="toolkit-controls">
+    <select id="toolkitSubject" onchange="renderToolkit()">
+      <option value="all">All Subjects</option>
+      <option value="os">Operating System & Unix</option>
+      <option value="c">C Programming</option>
+      <option value="sad">System Analysis & Design</option>
+      <option value="english">Business English</option>
+      <option value="math">Numerical Techniques</option>
+    </select>
+    <input id="toolkitSearch" placeholder="Search formula, command or concept..." oninput="renderToolkit()">
+  </div>
+  <div id="toolkitCards" class="toolkit-grid"></div>
+</section>
+
+<section id="important-answers" class="answers-v44">
+  <div class="heading">
+    <small>V4.4 EXAM ANSWER BUILDER</small>
+    <h2>✍️ Important Exam Answers</h2>
+    <p>Structured answer frameworks help you write clear 2, 5 and 10-mark answers without copying from another website.</p>
+  </div>
+  <div class="answer-controls">
+    <select id="answerSubject" onchange="renderAnswers()">
+      <option value="all">All Subjects</option>
+      <option value="os">Operating System & Unix</option>
+      <option value="c">C Programming</option>
+      <option value="sad">System Analysis & Design</option>
+      <option value="english">Business English</option>
+      <option value="math">Numerical Techniques</option>
+    </select>
+    <select id="answerMarks" onchange="renderAnswers()">
+      <option value="all">All Marks</option>
+      <option value="2">2 Marks</option>
+      <option value="5">5 Marks</option>
+      <option value="10">10 Marks</option>
+    </select>
+  </div>
+  <div id="answerCards" class="answer-grid"></div>
+</section>
+
+<section id="pyq" class="pyq"><div class="heading"><small>EXAM PRACTICE</small><h2>AKU BCA 2nd Semester PYQs</h2><p>Questions-only archive. No solutions.</p></div><div class="pyq-grid"><div class="pyq-card"><h3>AKU BCA Semester II — 2025</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2023</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2022</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2021</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2019</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2018</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2017</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2016</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2015</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div><div class="pyq-card"><h3>AKU BCA Semester II — 2014</h3><p>Year-wise paper section. Add the exact scanned question paper here after verification.</p><button onclick="alert('The exact paper file is not embedded because it could not be independently verified from a stable public copy.')">Paper not embedded</button></div></div><div class="missing"><b>Research note</b><span>2024: no stable public Semester-II paper copy verified in the research pass.</span><span>2020: no stable public Semester-II paper copy verified in the research pass.</span></div></section>
+<section id="about" class="about"><h2>BCA Notes by Shahid</h2><p>This website is a personal study portal for AKU BCA Semester II. Notes are written as explanations rather than copied syllabus text.</p></section>
+<footer>📚 BCA Notes by Shahid <span>Learn • Practice • Grow</span><button onclick="scrollTo({top:0,behavior:'smooth'})">↑ Top</button></footer>
+<script src="script.js"></script>
+<nav class="mobile-nav-v43">
+  <a href="#dashboard"><span>🏠</span>Home</a>
+  <a href="#subjects"><span>📚</span>Subjects</a>
+  <a href="#revision"><span>⚡</span>Revision</a>
+  <a href="#exam-mode"><span>🧠</span>Quiz</a>
+  <a href="#focus-mode"><span>🎯</span>Focus</a>
+</nav>
+<button class="back-top-v43" id="backTopV43" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div id="toastV43" class="toast-v43"></div>
+
+</body></html>
