@@ -183,6 +183,15 @@ nav a, nav button{
   .mobile-menu, .menu-toggle, [aria-label*="menu" i], [aria-label*="navigation" i]{
     display:flex;
   }
+   .mobile-menu, .menu-toggle, [aria-label*="menu" i], [aria-label*="navigation" i]{
+  display:flex;
+}
+
+nav.show{
+  display:grid !important;
+}
+}
+   
 }
 /* Prevent the V5 / Hub label from wrapping if it is a single navigation item. */
 nav a, nav button, nav li{
