@@ -827,3 +827,24 @@ button:hover, .btn:hover{
   opacity: 0.85;
   transform: translateY(-2px);
 }
+/* Mobile menu fix */
+@media (max-width: 620px) {
+  nav.show {
+    display: flex !important;
+    position: fixed !important;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    flex-direction: column;
+    background: var(--card);
+    padding: 15px;
+    gap: 8px;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
