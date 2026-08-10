@@ -718,3 +718,44 @@ button:hover, .btn:hover{
   opacity: 0.85;
   transform: translateY(-2px);
 }
+/* CONTACT SECTION FIX */
+.contact-section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  width: 100% !important;
+  padding: 60px 20px !important;
+  margin-top: 40px !important;
+  box-sizing: border-box;
+}
+
+.contact-container {
+  display: block !important;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-links {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  display: inline-block !important;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.contact-links a:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
