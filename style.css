@@ -875,6 +875,37 @@ button:hover, .btn:hover{
     padding: 15px;
     gap: 8px;
   }
+   /* ===== MOBILE NAV FIX ===== */
+@media (max-width: 620px) {
+
+  nav {
+    display: none !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  nav.show {
+    display: flex !important;
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    max-height: calc(100vh - 70px) !important;
+    overflow-y: auto !important;
+    z-index: 9999 !important;
+    flex-direction: column !important;
+    background: var(--card) !important;
+    padding: 15px !important;
+    gap: 8px !important;
+  }
+
+}
 
   body.menu-open {
     overflow: hidden;
