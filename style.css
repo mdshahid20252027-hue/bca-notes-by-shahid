@@ -754,7 +754,58 @@ button:hover, .btn:hover{
   border-radius: 10px;
   font-weight: 700;
 }
+/* Contact Section */
+.contact-section {
+  padding: 80px 20px;
+  text-align: center;
+}
 
+.contact-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.contact-container small {
+  color: #2563eb;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contact-container h2 {
+  font-size: 42px;
+  margin: 15px 0;
+  color: #111827;
+}
+
+.contact-container p {
+  color: #6b7280;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: #2563eb;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.contact-links a:hover {
+  transform: translateY(-3px);
+}
 .contact-links a:hover {
   opacity: 0.85;
   transform: translateY(-2px);
