@@ -186,12 +186,20 @@ nav a, nav button{
    .mobile-menu, .menu-toggle, [aria-label*="menu" i], [aria-label*="navigation" i]{
   display:flex;
 }
-
-nav.show{
-  display:grid !important;
+   nav.show{
+  display:flex !important;
+  position:fixed;
+  top:70px;
+  left:0;
+  right:0;
+  z-index:9999;
+  max-height:calc(100vh - 70px);
+  overflow-y:auto;
+  flex-direction:column;
+  background:var(--card);
+  padding:15px;
+  gap:8px;
 }
-}
-   
 }
 /* Prevent the V5 / Hub label from wrapping if it is a single navigation item. */
 nav a, nav button, nav li{
