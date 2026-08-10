@@ -848,3 +848,28 @@ button:hover, .btn:hover{
     overflow: hidden;
   }
 }
+/* FINAL MOBILE NAV FIX */
+@media (max-width: 620px) {
+  nav#nav:not(.show) {
+    display: none !important;
+  }
+
+  nav#nav.show {
+    display: flex !important;
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    flex-direction: column;
+    background: var(--card);
+    padding: 15px;
+    gap: 8px;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
