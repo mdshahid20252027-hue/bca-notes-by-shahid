@@ -671,3 +671,50 @@ button:hover, .btn:hover{
     width: 100%;
   }
 }
+/* Contact Section */
+.contact-section {
+  display: block;
+  width: 100%;
+  padding: 70px 7%;
+  background: var(--card);
+  color: var(--text);
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.contact-container h2 {
+  font-size: 36px;
+  margin: 10px 0 20px;
+}
+
+.contact-container p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.contact-links a:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
