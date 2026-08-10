@@ -1,28 +1,36 @@
 {
-  "name": "BCA Notes by Shahid – AKU Semester II",
+  "id": "./",
+  "name": "BCA Notes by Shahid — AKU Semester II",
   "short_name": "BCA Notes",
-  "description": "BCA Semester II Notes, PYQs, MCQs, Quizzes and Study Resources",
+  "description": "BCA Semester II Notes, Previous Year Questions, MCQs, Quizzes and Study Resources.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "orientation": "portrait",
-  "lang": "en",
+  "lang": "en-IN",
+  "dir": "ltr",
   "categories": [
     "education",
     "productivity"
   ],
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
