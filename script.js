@@ -8,7 +8,7 @@ function toggleNav(){
         nav.classList.contains('show')
     );
 }
-}
+
 function toggleTheme(){document.body.classList.toggle('dark');let d=document.body.classList.contains('dark');localStorage.setItem('aku-notes-theme',d?'dark':'light');document.querySelector('header button').textContent=d?'☀️':'🌙'}
 function answer(btn){let q=btn.closest('.q');q.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));if(btn.dataset.correct==='true'){btn.classList.add('correct');q.querySelector('span').textContent='Correct!'}else{btn.classList.add('wrong');q.querySelectorAll('button[data-correct="true"]').forEach(x=>x.classList.add('correct'));q.querySelector('span').textContent='Incorrect — the correct option is highlighted.'}}
 function scoreQuiz(btn){let box=btn.closest('.quiz'), qs=box.querySelectorAll('.q'), score=0;qs.forEach(q=>{let c=q.querySelector('button.correct');if(c&&c.dataset.correct==='true')score++});let s=box.querySelector('.score');s.textContent='Score: '+score+'/'+qs.length}
