@@ -965,3 +965,27 @@ button:hover, .btn:hover{
         display: flex !important;
     }
 }
+/* Mobile navigation fix */
+@media (max-width: 900px) {
+  header nav#nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--card);
+    padding: 15px;
+    z-index: 9999;
+  }
+
+  header nav#nav.show {
+    display: flex;
+  }
+
+  header nav#nav a {
+    display: block;
+    padding: 14px 16px;
+  }
+}
