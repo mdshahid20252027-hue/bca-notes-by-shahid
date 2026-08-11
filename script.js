@@ -1,12 +1,16 @@
-function toggleNav(){
-    const nav = document.getElementById('nav');
-    if (!nav) return;
+function toggleNav() {
+    const nav = document.getElementById("nav");
 
-    nav.classList.toggle('show');
-    document.body.classList.toggle(
-        'menu-open',
-        nav.classList.contains('show')
-    );
+    if (!nav) {
+        alert("Navigation not found");
+        return;
+    }
+
+    if (nav.style.display === "flex") {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "flex";
+    }
 }
 
 function toggleTheme(){document.body.classList.toggle('dark');let d=document.body.classList.contains('dark');localStorage.setItem('aku-notes-theme',d?'dark':'light');document.querySelector('header button').textContent=d?'☀️':'🌙'}
