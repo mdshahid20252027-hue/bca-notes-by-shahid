@@ -6,7 +6,20 @@ function toggleNav() {
         return;
     }
 
-    nav.classList.toggle("show");
+    if (nav.style.display === "flex") {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "fixed";
+        nav.style.top = "70px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+        nav.style.zIndex = "9999";
+        nav.style.padding = "15px";
+        nav.style.background = "white";
+        nav.style.gap = "12px";
+    }
 }
 
 function toggleTheme(){document.body.classList.toggle('dark');let d=document.body.classList.contains('dark');localStorage.setItem('aku-notes-theme',d?'dark':'light');document.querySelector('header button').textContent=d?'☀️':'🌙'}
