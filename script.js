@@ -1,16 +1,12 @@
 function toggleNav() {
-    const nav = document.getElementById("nav");
+    const nav = document.querySelector(".mobile-nav-v43");
 
     if (!nav) {
-        alert("Navigation not found");
+        alert("Mobile menu not found");
         return;
     }
 
-    if (nav.style.display === "flex") {
-        nav.style.display = "none";
-    } else {
-        nav.style.display = "flex";
-    }
+    nav.classList.toggle("show");
 }
 
 function toggleTheme(){document.body.classList.toggle('dark');let d=document.body.classList.contains('dark');localStorage.setItem('aku-notes-theme',d?'dark':'light');document.querySelector('header button').textContent=d?'☀️':'🌙'}
