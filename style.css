@@ -911,3 +911,57 @@ button:hover, .btn:hover{
     overflow: hidden;
   }
 }
+/* MOBILE MENU FIX */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none !important;
+    }
+
+    nav.show {
+        display: flex !important;
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-height: calc(100vh - 70px) !important;
+        overflow-y: auto !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 15px !important;
+        gap: 8px !important;
+        background: var(--card, #fff) !important;
+        z-index: 99999 !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,.15) !important;
+    }
+
+    nav.show a,
+    nav.show button {
+        display: block !important;
+        width: 100% !important;
+        padding: 14px 16px !important;
+        text-align: left !important;
+        white-space: nowrap !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        z-index: 100000 !important;
+    }
+}
+
+@media (min-width: 901px) {
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+    nav {
+        display: flex !important;
+    }
+}
