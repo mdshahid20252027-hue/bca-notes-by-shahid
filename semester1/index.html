@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AKU BCA Semester 1 Notes</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+header{
+  background:#101827;
+  color:white;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#4f75ff;
+}
+
+.back{
+  background:#4f75ff;
+  color:white;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:8px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#147ee8,#3154d9);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero small{
+  opacity:.9;
+  letter-spacing:2px;
+}
+
+.hero h1{
+  font-size:48px;
+  margin:15px 0 8px;
+}
+
+.hero p{
+  font-size:18px;
+}
+
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.container h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card .number{
+  color:#4f75ff;
+  font-weight:bold;
+}
+
+.card h3{
+  margin:12px 0;
+}
+
+.card p{
+  color:#667085;
+  line-height:1.5;
+}
+
+.card a{
+  display:inline-block;
+  background:#4f75ff;
+  color:white;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:8px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+  background:#101827;
+  color:white;
+}
+
+@media(max-width:800px){
+  .subject-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:550px){
+  .subject-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  header{
+    padding:15px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    BCA Notes <span>by Shahid</span>
+  </div>
+
+  <a class="back" href="../index.html">
+    ← Back to Home
+  </a>
+</header>
+
+<section class="hero">
+  <small>AKU • BCA • SEMESTER I</small>
+
+  <h1>Semester 1 Notes</h1>
+
+  <p>
+    Complete AKU BCA Semester 1 notes in simple,
+    student-friendly language.
+  </p>
+</section>
+
+<div class="container">
+
+<h2>📚 Semester 1 Subjects</h2>
+
+<div class="subject-grid">
+
+  <div class="card">
+    <div class="number">BCA-101</div>
+    <h3>Communicative English</h3>
+    <p>
+      Communication skills, grammar, writing skills,
+      correspondence and exam preparation.
+    </p>
+
+    <a href="bca-101-communicative-english.html">
+      Open Notes →
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="number">BCA-102</div>
+    <h3>Mathematics</h3>
+    <p>
+      Semester 1 mathematics concepts, formulas,
+      examples and practice questions.
+    </p>
+
+    <a href="#">
+      Coming Soon
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="number">BCA-103</div>
+    <h3>Computer Fundamentals</h3>
+    <p>
+      Basic computer concepts, hardware, software,
+      operating systems and applications.
+    </p>
+
+    <a href="#">
+      Coming Soon
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="number">BCA-104</div>
+    <h3>Programming in C</h3>
+    <p>
+      C programming basics, variables, loops,
+      arrays, functions and programs.
+    </p>
+
+    <a href="#">
+      Coming Soon
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="number">BCA-105</div>
+    <h3>Digital Electronics</h3>
+    <p>
+      Number systems, logic gates, Boolean algebra
+      and digital circuits.
+    </p>
+
+    <a href="#">
+      Coming Soon
+    </a>
+  </div>
+
+</div>
+
+</div>
+
+<footer>
+  <b>BCA Notes by Shahid</b>
+  <br>
+  Learn • Practice • Grow
+</footer>
+
+</body>
+</html>
