@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA-101 Communicative English | BCA Notes by Shahid</title>
+
+    <meta name="description"
+          content="BCA-101 Communicative English notes for AKU BCA students. Business Correspondence, Government Correspondence, Writing Skills, Grammar, Stories and Job Preparation.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 9px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,.18);
+            padding: 7px 14px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 52px);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 17px;
+            opacity: .95;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 35px auto;
+        }
+
+        .quick-nav {
+            background: white;
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            margin-bottom: 30px;
+        }
+
+        .quick-nav h2 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .quick-links a {
+            text-decoration: none;
+            color: #2563eb;
+            background: #eff6ff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.06);
+            scroll-margin-top: 90px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: #1d4ed8;
+        }
+
+        .section-title h2 {
+            font-size: 25px;
+        }
+
+        .topic {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 8px;
+        }
+
+        .topic h3 {
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .topic ul {
+            padding-left: 22px;
+        }
+
+        .exam-box {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .revision-box {
+            background: #ecfdf5;
+            border-left: 5px solid #10b981;
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        .question {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .question strong {
+            color: #1d4ed8;
+        }
+
+        .quiz-card {
+            background: #eef2ff;
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin: 8px 0;
+            padding: 12px;
+            border: 1px solid #c7d2fe;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover {
+            background: #e0e7ff;
+        }
+
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .top-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            background: #111827;
+            color: #cbd5e1;
+            padding: 30px 15px;
+            margin-top: 50px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 15px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .back-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 45px 18px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 20px 16px;
+            }
+
+            .section-title h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            BCA Notes <span>by Shahid</span>
+        </div>
+
+        <a class="back-btn" href="../index.html">
+            ← Back to Home
+        </a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="badge">AKU • BCA • SEMESTER 1</div>
+
+    <h1>BCA-101</h1>
+
+    <p>
+        Communicative English
+    </p>
+
+    <p style="margin-top:10px;">
+        Learn important concepts, writing skills, grammar
+        and job-preparation topics in simple language.
+    </p>
+</section>
+
+<main class="container">
+
+    <!-- QUICK NAVIGATION -->
+    <div class="quick-nav">
+        <h2>📚 Quick Navigation</h2>
+
+        <div class="quick-links">
+            <a href="#business">Business Correspondence</a>
+            <a href="#government">Government Correspondence</a>
+            <a href="#writing">Writing Skills</a>
+            <a href="#grammar">Grammar</a>
+            <a href="#stories">Short Stories</a>
+            <a href="#job">Job Preparation</a>
+            <a href="#questions">Important Questions</a>
+            <a href="#revision">Quick Revision</a>
+            <a href="#quiz">MCQ Quiz</a>
+        </div>
+    </div>
+
+
+    <!-- BUSINESS CORRESPONDENCE -->
+    <section class="section" id="business">
+
+        <div class="section-title">
+            <span>🏢</span>
+            <h2>1. Business Correspondence</h2>
+        </div>
+
+        <p>
+            Business correspondence refers to formal written
+            communication used in business and professional situations.
+        </p>
+
+        <div class="topic">
+            <h3>📄 Structure of a Letter</h3>
+            <ul>
+                <li>Sender's Address</li>
+                <li>Date</li>
+                <li>Receiver's Address</li>
+                <li>Subject</li>
+                <li>Salutation</li>
+                <li>Body of the Letter</li>
+                <li>Closing</li>
+                <li>Signature</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>🔍 Inquiry Letter</h3>
+            <p>
+                A letter written to request information about a product,
+                service, price, availability or other business matter.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🛒 Sales Letter</h3>
+            <p>
+                A formal letter written to promote or sell a product
+                or service to a potential customer.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📦 Order Letter</h3>
+            <p>
+                A letter used to place an order for products or services.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>⚠️ Complaints</h3>
+            <p>
+                A complaint letter communicates a problem or dissatisfaction
+                with a product, service or transaction.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🤝 Complaint Handling</h3>
+            <p>
+                Complaint handling involves responding professionally,
+                understanding the issue and providing an appropriate solution.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>✉️ Routine Letter</h3>
+            <p>
+                Routine correspondence is used for regular,
+                day-to-day professional communication.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- GOVERNMENT CORRESPONDENCE -->
+    <section class="section" id="government">
+
+        <div class="section-title">
+            <span>🏛️</span>
+            <h2>2. Government Correspondence</h2>
+        </div>
+
+        <div class="topic">
+            <h3>📑 Memo</h3>
+            <p>
+                A memorandum is a formal written communication used
+                within an organization or institution.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📅 Agenda</h3>
+            <p>
+                An agenda is a list of items or topics planned
+                for discussion during a meeting.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📝 Minutes</h3>
+            <p>
+                Minutes are the official written record of the
+                proceedings and decisions of a meeting.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>💡 Proposals</h3>
+            <p>
+                A proposal is a formal plan or suggestion presented
+                for consideration or approval.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- WRITING SKILLS -->
+    <section class="section" id="writing">
+
+        <div class="section-title">
+            <span>✍️</span>
+            <h2>3. Writing Skills</h2>
+        </div>
+
+        <div class="topic">
+            <h3>📊 Report Writing</h3>
+            <p>
+                A report presents information about a specific subject
+                in a structured and formal manner.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>⚖️ Argumentative Composition</h3>
+            <p>
+                Writing that presents an argument or viewpoint
+                supported by reasons and evidence.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🔎 Explanatory Composition</h3>
+            <p>
+                Writing that explains an idea, process or subject clearly.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🎨 Descriptive Composition</h3>
+            <p>
+                Writing that describes a person, place, object,
+                event or situation.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📖 Narrative Composition</h3>
+            <p>
+                Writing that presents events in the form of a story
+                or sequence.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📝 Paragraph Writing</h3>
+            <p>
+                A paragraph develops one main idea using logically
+                connected sentences.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- GRAMMAR -->
+    <section class="section" id="grammar">
+
+        <div class="section-title">
+            <span>📘</span>
+            <h2>4. Grammar</h2>
+        </div>
+
+        <div class="topic">
+            <h3>🔤 Sentence Structure</h3>
+            <p>
+                Learn how words and phrases are organized to form
+                meaningful sentences.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>💬 Idiomatic Usage</h3>
+            <p>
+                Understanding commonly used expressions whose meanings
+                may differ from the literal meaning of individual words.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>⏰ Tenses</h3>
+            <p>
+                Tenses indicate the time of an action or state.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🔄 Direct & Indirect Speech</h3>
+            <p>
+                Direct speech reports exact words, while indirect speech
+                reports the meaning of what someone said.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🔡 Parts of Speech</h3>
+            <p>
+                Important categories include noun, pronoun, verb,
+                adjective, adverb, preposition, conjunction and interjection.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🔁 Active & Passive Voice</h3>
+            <p>
+                Active voice focuses on the doer of an action,
+                while passive voice focuses on the receiver of the action.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📚 Vocabulary</h3>
+            <p>
+                Development of word knowledge and appropriate word usage
+                for effective communication.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- STORIES -->
+    <section class="section" id="stories">
+
+        <div class="section-title">
+            <span>📕</span>
+            <h2>5. Selected Short Stories</h2>
+        </div>
+
+        <p>
+            The syllabus includes selected life stories of Indian
+            business leaders.
+        </p>
+
+        <div class="topic">
+            <h3>👤 Rahul Bajaj</h3>
+            <p>
+                Life and business journey associated with Bajaj Group.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>👤 Subhash Chandra</h3>
+            <p>
+                Business journey associated with Essel Group and Zee TV.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>👤 N. R. Narayana Murthy</h3>
+            <p>
+                Business journey associated with Infosys.
+            </p>
+        </div>
+
+        <div class="exam-box">
+            <strong>Exam Tip:</strong>
+            Prepare the important events, achievements,
+            business journey and key lessons from each prescribed story.
+        </div>
+
+    </section>
+
+
+    <!-- JOB PREPARATION -->
+    <section class="section" id="job">
+
+        <div class="section-title">
+            <span>💼</span>
+            <h2>6. Preparation for Job</h2>
+        </div>
+
+        <div class="topic">
+            <h3>📨 Job Application</h3>
+            <p>
+                Learn how to write a formal application for a job.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>📄 Curriculum Vitae (CV)</h3>
+            <p>
+                Learn the basic structure and important information
+                required in a professional CV.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>🎤 Interview Preparation</h3>
+            <p>
+                Preparation for common interview questions,
+                communication and professional behaviour.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h3>👥 Group Discussion</h3>
+            <p>
+                Learn how to participate effectively in a group discussion,
+                present ideas and communicate respectfully.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT QUESTIONS -->
+    <section class="section" id="questions">
+
+        <div class="section-title">
+            <span>📝</span>
+            <h2>Important Questions</h2>
+        </div>
+
+        <div class="question">
+            <strong>Q1.</strong>
+            Explain the structure of a formal business letter.
+        </div>
+
+        <div class="question">
+            <strong>Q2.</strong>
+            What is an inquiry letter? Explain with an example.
+        </div>
+
+        <div class="question">
+            <strong>Q3.</strong>
+            What is a memo?
+        </div>
+
+        <div class="question">
+            <strong>Q4.</strong>
+            What are minutes of a meeting?
+        </div>
+
+        <div class="question">
+            <strong>Q5.</strong>
+            Explain the different types of composition writing.
+        </div>
+
+        <div class="question">
+            <strong>Q6.</strong>
+            Explain active and passive voice.
+        </div>
+
+        <div class="question">
+            <strong>Q7.</strong>
+            How do you prepare an effective CV?
+        </div>
+
+        <div class="question">
+            <strong>Q8.</strong>
+            What are the important points to remember during an interview?
+        </div>
+
+    </section>
+
+
+    <!-- QUICK REVISION -->
+    <section class="section" id="revision">
+
+        <div class="section-title">
+            <span>🔄</span>
+            <h2>Quick Revision</h2>
+        </div>
+
+        <div class="revision-box">
+
+            <p>✔ Business Correspondence → Formal business communication</p>
+
+            <p>✔ Memo → Internal formal communication</p>
+
+            <p>✔ Agenda → Planned meeting topics</p>
+
+            <p>✔ Minutes → Record of meeting proceedings</p>
+
+            <p>✔ Report → Structured presentation of information</p>
+
+            <p>✔ CV → Summary of education, skills and experience</p>
+
+            <p>✔ Interview → Formal interaction for job selection</p>
+
+            <p>✔ Group Discussion → Discussion of a topic among participants</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MCQ QUIZ -->
+    <section class="section" id="quiz">
+
+        <div class="section-title">
+            <span>🧠</span>
+            <h2>Quick MCQ Quiz</h2>
+        </div>
+
+        <div class="quiz-card">
+
+            <p>
+                <strong>Question:</strong>
+                What is an agenda?
+            </p>
+
+            <button class="quiz-option"
+                    onclick="checkAnswer(this, false)">
+                A. Record of a meeting
+            </button>
+
+            <button class="quiz-option"
+                    onclick="checkAnswer(this, true)">
+                B. List of topics planned for a meeting
+            </button>
+
+            <button class="quiz-option"
+                    onclick="checkAnswer(this, false)">
+                C. A job application
+            </button>
+
+            <button class="quiz-option"
+                    onclick="checkAnswer(this, false)">
+                D. A sales letter
+            </button>
+
+            <div id="quiz-result"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        <strong>BCA Notes by Shahid</strong>
+    </p>
+
+    <p>
+        AKU BCA • Semester 1 • BCA-101
+    </p>
+
+    <p style="margin-top:8px;">
+        Created for educational purposes.
+    </p>
+
+</footer>
+
+
+<button class="top-btn"
+        id="topBtn"
+        onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    ↑
+</button>
+
+
+<script>
+
+function checkAnswer(button, correct) {
+
+    const result = document.getElementById("quiz-result");
+
+    if (correct) {
+        result.textContent = "✅ Correct Answer!";
+        result.style.color = "green";
+    } else {
+        result.textContent = "❌ Incorrect. Try again!";
+        result.style.color = "red";
+    }
+}
+
+
+window.addEventListener("scroll", function () {
+
+    const topBtn = document.getElementById("topBtn");
+
+    if (window.scrollY > 400) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+
+});
+
+</script>
+
+</body>
+</html>
